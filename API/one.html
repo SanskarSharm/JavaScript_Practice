@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Card Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px auto;
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .followers {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<button id="fetchDataBtn">Fetch Data</button>
+
+<div class="card" id="cardContainer" style="display:none;">
+  <img id="cardImage" src="" alt="User Image">
+  <div id="followers" class="followers"></div>
+</div>
+
+<script>
+  const fetchDataBtn = document.getElementById('fetchDataBtn');
+  const cardContainer = document.getElementById('cardContainer');
+  const cardImage = document.getElementById('cardImage');
+  const followersElement = document.getElementById('followers');
+
+  fetchDataBtn.addEventListener('click', fetchData);
+
+  async function fetchData() {
+    try {
+      const response = await fetch('https://api.github.com/users/SanskarSharm');
+      const data = await response.json();
+
+      // Assuming API response has image URL and followers count
+      const imageUrl = data.avatar_url;
+      const followersCount = data.followers;
+
+      // Update card with fetched data
+      cardImage.src = imageUrl;
+      followersElement.textContent = `Followers: ${followersCount}`;
+
+      // Show the card
+      cardContainer.style.display = 'block';
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+</script>
+
+</body>
+</html>

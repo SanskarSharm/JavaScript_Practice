@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color:#414141; color:aliceblue   ">
+
+    <h2>Amazing image</h2>
+
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+    
+</body>
+
+<script>
+     //document.getElementById('owl').onclick = function(){
+     //   alert('You clicked on the owl image');
+     //}
+
+//yeh best approach hai
+   // document.getElementById('owl').addEventListener('click', function(){
+   //    alert('You clicked on the owl image');
+   // },false); 
+   //false is used to indicate that the event should be captured in the bubbling phase
+    //attachEvent is used for older versions of IE //attachEvent()
+    //jQuery is used for modern browsers
+    //jQuery - on() method
+
+
+//event object
+
+    //document.getElementById('owl').addEventListener('click',function(event){
+    //    console.log(event);
+    //},false);
+
+//type, timestamp, defaultPrevented, 
+//target, currentTarget, relatedTarget,
+//toElement, fromElement, srcElement,
+//clientX, clientY, pageX, pageY,
+//screenX, screenY, offsetX, offsetY,
+//altKey, ctrlKey, shiftKey, metaKey,
+//button, buttons, which, keyCode, charCode,
+//preventDefault(), stopPropagation(), stopImmediatePropagation()
+
+
+//document.getElementById('images').addEventListener('click',function(event){
+//    console.log("clicked inside the ul");
+//},false);
+//bubbling ke karan yeh phle print hoga phir images
+//document.getElementById('japan').addEventListener('click',function(event){
+//    console.log("japan clicked");
+//    event.stopPropagation();
+//},false);
+//isko stopPropagation() se bubbling roka hai
+
+//true krte hi captured phase me chala jayega
+//fir phle clicked inside the ul print hoga phir japan clicked
+
+
+//document.getElementById('google').addEventListener('click',function(event){
+//    console.log("google clicked");
+//   event.preventDefault();
+// event.stopPropagation();
+    
+//},false); 
+
+//image gayab ho jayegi
+
+document.querySelector('#images').addEventListener('click',function(event){
+    console.log(event);
+
+    console.log(event.target);
+    console.log(event.target.parentNode);
+    console.log(event.target.tagName);
+
+    if(event.target.tagName === 'IMG'){
+        console.log(event.target.id);
+        console.log(`You clicked on the ${event.target.id} image`);
+        let removeIt = event.target.parentNode;
+        removeIt.remove();
+    }
+
+    
+    
+
+
+    //let removeIt = event.target.parentNode;
+    //removeIt.parentNode.removeChild(removeIt);
+
+
+},false);
+
+
+
+
+</script>
+
+
+
+</html>

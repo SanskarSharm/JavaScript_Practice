@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+span{
+    display: block;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+}
+nav{
+    background-color: #fff;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+
+}
+.canvas{
+    margin: 100px auto 100px;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.button{
+    display: inline-block;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #000;
+}
+#grey{
+    margin-top: 20px;
+    background-color: gray;
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+}
+#white{
+    background-color: white;
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+    
+}
+#blue{
+    background-color: blue;
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+}
+#yellow{
+    background-color: yellow;
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+}
+#pink{
+    background-color: pink;
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+}

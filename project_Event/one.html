@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sanskar Sharma </h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+</body>
+
+<script>
+
+
+    //isme parameter pass ho skta
+    //const sayDate = function(str){
+    //    console.log(str,Date.now())
+    //}
+    //setInterval(sayDate,1000,"hi");
+
+    //const intervalId = setInterval(sayDate,1000,"hi");
+//
+    //clearInterval(intervalId);
+
+
+
+//using start or stop button
+    document.querySelector('#start').addEventListener('click',function(){
+        const intervalId = setInterval(function(){
+            console.log("Sanskar Sharma",Date.now())
+        },1000);
+        document.querySelector('#stop').addEventListener('click',function(){
+            clearInterval(intervalId);
+            console.log("Interval Cleared");
+        });
+    });
+
+    
+
+    //setInterval(function(){
+    //    console.log("Sanskar Sharma",Date.now())
+    //},3000);
+
+    
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color:#fff;">
+
+    <ul class="lanaguage">
+        <li>JavaScript</li>
+    </ul>
+    
+</body>
+<script>
+    function addLanguage(langName){
+        const li  = document.createElement('li');
+        li.innerHTML = `${langName}`;
+        document.querySelector('.lanaguage').appendChild(li);
+
+    }
+    addLanguage('Python');
+    addLanguage('Java');
+
+
+    function addOptiLang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        //yeh better uper se
+        document.querySelector('.lanaguage').appendChild(li);
+    }
+    addOptiLang('C++');
+    addOptiLang('C#');
+
+    //EDIT
+    const secondLang = document.querySelector('li:nth-child(2)')
+    //secondLang.innerHTML = 'TypeScript';
+    const newLi = document.createElement('li')
+    newLi.textContent = 'TypeScript';
+    secondLang.replaceWith(newLi);
+
+    //one more way for edit
+    const firstLang = document.querySelector('li:first-child');
+    firstLang.outerHTML = '<li>React</li>';
+
+    //DELETE
+    const thirdLang = document.querySelector('li:nth-child(3)');
+    thirdLang.remove();
+
+</script>
+</html>

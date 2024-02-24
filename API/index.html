@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body style="background-color:#fff;">
+
+    <div class="container">
+        <button id= "card">Card</button>
+
+        
+    </div>
+    
+</body>
+
+<script>
+    const requestUrl = 'https://api.github.com/users/SanskarSharm';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestUrl,true);
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(xhr.responseText);
+            console.log(data.followers);
+
+
+            //if card is clicked then show the number of followers and image
+            document.getElementById('card').addEventListener('click',function(){
+                const card = document.createElement('div');
+                card.innerHTML = `
+                    <img src="${data.avatar_url}" alt="Avatar" style="width:40%">
+                    <h1>${data.followers}</h1>
+                `;
+                document.body.appendChild(card);
+                
+            });
+            
+            //console.log(xhr.responseText);
+        }
+    }
+    xhr.send();
+</script>
+
+</html>
