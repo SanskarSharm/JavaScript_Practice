@@ -1,2 +1,3 @@
-JavaScript For Practice.
+# JavaScript
+A code repo JavaScript Practice.
 
